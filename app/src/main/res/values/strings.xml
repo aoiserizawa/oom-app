@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">OOM</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="agency_menu_item">Agency</string>
+    <string name="services_menu_item">Services</string>
+    <string name="work_menu_item">Work</string>
+    <string name="news_menu_item">News</string>
+    <string name="blog_menu_item">Blog</string>
+    <string name="contact_menu_item">Contact Us</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+</resources>
