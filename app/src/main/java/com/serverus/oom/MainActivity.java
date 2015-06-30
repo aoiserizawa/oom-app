@@ -1,11 +1,14 @@
 package com.serverus.oom;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
@@ -15,11 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private Toolbar mToolBar;
-    private NavigationView mDrawer;
-    private ActionBarDrawerToggle mdrawerToggle;
-    private DrawerLayout mDrawerLayout;
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private RelativeLayout digitalFrontier;
     private RelativeLayout forwardThinkers;
@@ -29,11 +28,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public String viewVar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
+        setContentView(R.layout.activity_main);
+        initDrawer();
         initViews();
 
         digitalFrontier.setOnClickListener(this);
@@ -71,20 +72,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initViews(){
-        mToolBar = (Toolbar) findViewById(R.id.app_bar);
-        setSupportActionBar(mToolBar);
-        mDrawer = (NavigationView) findViewById(R.id.main_drawer);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_parent);
-        mdrawerToggle = new ActionBarDrawerToggle(
-                this,
-                mDrawerLayout,
-                mToolBar,
-                R.string.drawer_open,
-                R.string.drawer_close);
-
-        mDrawerLayout.setDrawerListener(mdrawerToggle);
-        // indicator based on whether the drawerlayout is in open or closed
-        mdrawerToggle.syncState();
 
         digitalFrontier = (RelativeLayout) findViewById(R.id.digital_frontier);
         forwardThinkers = (RelativeLayout) findViewById(R.id.forward_thinkers);
@@ -122,5 +109,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         Snackbar.make(mDrawerLayout, viewVar , Snackbar.LENGTH_LONG).show();
+    }
+
+    public void initDrawer(){
+
+        Log.d("aoi", "init drawer " + String.valueOf(mSelectedId));
+
+        mToolBar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(mToolBar);
+        mDrawer = (NavigationView) findViewById(R.id.main_drawer);
+
+        if(!mDrawer.getMenu().getItem(mSelectedId).isEnabled()){
+            Log.d("aoi", "NOT CLICKABLE");
+        }
+
+        mDrawer.setNavigationItemSelectedListener(this);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_parent);
+        mdrawerToggle = new ActionBarDrawerToggle(
+                this,
+                mDrawerLayout,
+                mToolBar,
+                R.string.drawer_open,
+                R.string.drawer_close);
+
+        mDrawerLayout.setDrawerListener(mdrawerToggle);
+
+        // indicator based on whether the drawerlayout is in open or closed
+        mdrawerToggle.syncState();
     }
 }

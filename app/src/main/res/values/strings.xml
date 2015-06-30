@@ -11,4 +11,6 @@
     <string name="contact_menu_item">Contact Us</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="title_activity_base_actvity">BaseActvity</string>
+    <string name="title_activity_agency">AgencyActivity</string>
 </resources>
