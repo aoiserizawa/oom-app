@@ -1,5 +1,6 @@
 package com.serverus.oom;
 
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
 import android.content.res.Configuration;
@@ -170,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //mDrawer.closeDrawers();
     }
 
-    public void fragmentReplace(Class fragmentClass){
+    public void fragmentReplace(Class fragmentClass) {
 
         try {
             fragment = (Fragment) fragmentClass.newInstance();
@@ -179,7 +180,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = this.getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+
+        if (fragmentClass == FragmentHome.class) {
+            ft.replace(R.id.flContent, fragment);
+        } else {
+            ft.replace(R.id.flContent, fragment).addToBackStack(null);
+        }
+
+        ft.commit();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStack();
+        } else {
+
+            super.onBackPressed();
+        }
     }
 
 }
