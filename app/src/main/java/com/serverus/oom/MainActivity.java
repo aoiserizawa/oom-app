@@ -31,11 +31,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RelativeLayout preferedActions;
 
     private LinearLayout innerParent;
+    private final String FRAGMENT_TAG = "myfragmenttag";
 
     public String viewVar;
 
     public Fragment fragment = null;
     public Class fragmentClass = null;
+
+    private MenuItem menuItemReserve;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,15 +50,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        forwardThinkers.setOnClickListener(this);
 //        preferedActions.setOnClickListener(this);
 
-        fragmentClass = FragmentHome.class;
-        fragmentReplace(fragmentClass);
+        if(savedInstanceState != null){
+            getSupportFragmentManager().findFragmentByTag(FRAGMENT_TAG);
+
+        }else{
+            fragmentClass = FragmentHome.class;
+            fragmentReplace(fragmentClass);
+        }
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        //getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -72,6 +80,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        mdrawerToggle.syncState();
     }
 
     @Override
@@ -116,7 +131,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             detailActivity(v);
         }
-
     }
 
 
@@ -159,15 +173,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.agency_menu_item:
                 fragmentClass = FragmentAgency.class;
                 break;
+            case R.id.services_menu_item:
+                fragmentClass = FragmentServices.class;
+                break;
         }
 
-
+        menuItemReserve = menuItem;
 
         fragmentReplace(fragmentClass);
 
         // Highlight the selected item, update the title, and close the drawer
-        menuItem.setChecked(true);
-        setTitle(menuItem.getTitle());
+        //menuItem.setChecked(true);
+        //setTitle(menuItem.getTitle());
         //mDrawer.closeDrawers();
     }
 
@@ -185,19 +202,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (fragmentClass == FragmentHome.class) {
             ft.replace(R.id.flContent, fragment);
         } else {
-            ft.replace(R.id.flContent, fragment).addToBackStack(null);
+            // the FRAGMENT_TAG constant is used for
+            // saveInstatanceState when the user change orientation
+            // the fragment will still remain
+            // **********
+            // addToBackStack is used to have a reference from the previous fragments
+            // so you can go back to them when the user tap on the back hardware button
+            ft.replace(R.id.flContent, fragment, FRAGMENT_TAG).addToBackStack(null);
         }
 
-        ft.commit();
+        // setTransition is to add some animation when opening a fragment
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit();
+
+        mDrawerLayout.closeDrawers();
+
     }
 
-
+    // handle the back button when the user
+    // tap on the back hardware button
     @Override
     public void onBackPressed() {
+        // this is on how to go back to previous fragment
+        // with the user of addToBackStack()
         if (getFragmentManager().getBackStackEntryCount() > 0) {
             getFragmentManager().popBackStack();
         } else {
-
             super.onBackPressed();
         }
     }

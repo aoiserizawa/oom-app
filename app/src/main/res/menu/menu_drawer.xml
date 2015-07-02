@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/agency_menu_item"
-        android:title="@string/agency_menu_item"/>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/agency_menu_item"
+            android:title="@string/agency_menu_item"/>
 
-    <item
-        android:id="@+id/services_menu_item"
-        android:title="@string/services_menu_item"/>
+        <item
+            android:id="@+id/services_menu_item"
+            android:title="@string/services_menu_item"/>
 
-    <item
-        android:id="@+id/work_menu_item"
-        android:title="@string/work_menu_item"/>
+        <item
+            android:id="@+id/work_menu_item"
+            android:title="@string/work_menu_item"/>
 
-    <item
-        android:id="@+id/news_menu_item"
-        android:title="@string/news_menu_item"/>
+        <item
+            android:id="@+id/news_menu_item"
+            android:title="@string/news_menu_item"/>
 
-    <item
-        android:id="@+id/blog_menu_item"
-        android:title="@string/blog_menu_item"/>
+        <item
+            android:id="@+id/blog_menu_item"
+            android:title="@string/blog_menu_item"/>
 
-    <item
-        android:id="@+id/contact_menu_item"
-        android:title="@string/contact_menu_item"/>
+        <item
+            android:id="@+id/contact_menu_item"
+            android:title="@string/contact_menu_item"/>
 
+    </group>
 </menu>
