@@ -58,6 +58,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             fragmentReplace(fragmentClass);
         }
 
+        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+
+            @Override
+            public void onBackStackChanged() {
+                Fragment f = getSupportFragmentManager().findFragmentById(R.id.flContent);
+                if (f != null) {
+                    updateTitleAndDrawer(f);
+                }
+
+            }
+        });
+
     }
 
     @Override
@@ -165,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void selectDrawerItem(MenuItem menuItem) {
-
+        
 
         // Create a new fragment and specify the planet to show based on
         // position
@@ -213,7 +225,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // setTransition is to add some animation when opening a fragment
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit();
-
         mDrawerLayout.closeDrawers();
 
     }
@@ -225,9 +236,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // this is on how to go back to previous fragment
         // with the user of addToBackStack()
         if (getFragmentManager().getBackStackEntryCount() > 0) {
+
             getFragmentManager().popBackStack();
+
         } else {
             super.onBackPressed();
+        }
+    }
+
+
+    private void updateTitleAndDrawer (Fragment fragment){
+        String fragClassName = fragment.getClass().getName();
+
+        if (fragClassName.equals(FragmentAgency.class.getName())){
+            setTitle("Agency");
+            //set selected item position, etc
+        }
+        else if (fragClassName.equals(FragmentServices.class.getName())){
+            setTitle ("Services");
+            //set selected item position, etc
+        }else{
+            setTitle ("OOm");
         }
     }
 
