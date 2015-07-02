@@ -18,8 +18,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Toolbar mToolBar;
     private NavigationView mDrawer;
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public Fragment fragment = null;
     public Class fragmentClass = null;
 
-    private MenuItem menuItemReserve;
+    private MenuItem menuItemReserve = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,15 +56,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             fragmentReplace(fragmentClass);
         }
 
+        // this will determine if we are using the BackStack
+        // we need this to change the title when we go back from previous fragments
         getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
-
             @Override
             public void onBackStackChanged() {
                 Fragment f = getSupportFragmentManager().findFragmentById(R.id.flContent);
                 if (f != null) {
                     updateTitleAndDrawer(f);
                 }
-
             }
         });
 
@@ -124,9 +122,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // indicator based on whether the drawerlayout is in open or closed
         mdrawerToggle.syncState();
 
-        digitalFrontier = (RelativeLayout) findViewById(R.id.digital_frontier);
-        forwardThinkers = (RelativeLayout) findViewById(R.id.forward_thinkers);
-        preferedActions = (RelativeLayout) findViewById(R.id.prefered_actions);
+//        digitalFrontier = (RelativeLayout) findViewById(R.id.digital_frontier);
+//        forwardThinkers = (RelativeLayout) findViewById(R.id.forward_thinkers);
+//        preferedActions = (RelativeLayout) findViewById(R.id.prefered_actions);
 
         innerParent = (LinearLayout) findViewById(R.id.inner_parent);
 
@@ -144,7 +142,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             detailActivity(v);
         }
     }
-
 
     private void detailActivity(View view){
 
@@ -171,33 +168,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         selectDrawerItem(menuItem);
-                        return true;
+                        return false;
                     }
                 });
     }
 
-    public void selectDrawerItem(MenuItem menuItem) {
-        
+    public boolean selectDrawerItem(MenuItem menuItem) {
 
-        // Create a new fragment and specify the planet to show based on
-        // position
-        switch(menuItem.getItemId()) {
-            case R.id.agency_menu_item:
-                fragmentClass = FragmentAgency.class;
-                break;
-            case R.id.services_menu_item:
-                fragmentClass = FragmentServices.class;
-                break;
+        // if the user click the same menu
+        // it wont do anything but just close the drawer
+        // to avoid redundant opening of fragments
+        if(menuItemReserve == menuItem){
+            mDrawerLayout.closeDrawers();
+            return false;
+        }else{
+            // Create a new fragment and specify the planet to show based on
+            // position
+            switch(menuItem.getItemId()) {
+                case R.id.agency_menu_item:
+                    fragmentClass = FragmentAgency.class;
+                    break;
+                case R.id.services_menu_item:
+                    fragmentClass = FragmentServices.class;
+                    break;
+                default:
+                    break;
+            }
+            menuItemReserve = menuItem;
+            fragmentReplace(fragmentClass);
+
+            Log.d("aoi", String.valueOf(menuItem));
+            // Highlight the selected item, update the title, and close the drawer
+            //menuItemReserve.setChecked(true);
+            //setTitle(menuItem.getTitle());
+            //mDrawer.closeDrawers();
+            return true;
         }
-
-        menuItemReserve = menuItem;
-
-        fragmentReplace(fragmentClass);
-
-        // Highlight the selected item, update the title, and close the drawer
-        //menuItem.setChecked(true);
-        //setTitle(menuItem.getTitle());
-        //mDrawer.closeDrawers();
     }
 
     public void fragmentReplace(Class fragmentClass) {
@@ -233,12 +239,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // tap on the back hardware button
     @Override
     public void onBackPressed() {
+        // this will determine if the backstack is zero
+        // and will make the menuItemReserve back to null
+        // to empty from previous selected item
+        if(getFragmentManager().getBackStackEntryCount() == 0){
+            menuItemReserve = null;
+        }
+
         // this is on how to go back to previous fragment
         // with the user of addToBackStack()
         if (getFragmentManager().getBackStackEntryCount() > 0) {
-
             getFragmentManager().popBackStack();
-
         } else {
             super.onBackPressed();
         }
@@ -247,14 +258,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void updateTitleAndDrawer (Fragment fragment){
         String fragClassName = fragment.getClass().getName();
-
+        Log.d("aoi", String.valueOf(menuItemReserve));
         if (fragClassName.equals(FragmentAgency.class.getName())){
+            // set the app bar title
             setTitle("Agency");
-            //set selected item position, etc
         }
         else if (fragClassName.equals(FragmentServices.class.getName())){
             setTitle ("Services");
-            //set selected item position, etc
         }else{
             setTitle ("OOm");
         }
