@@ -1,5 +1,6 @@
 package com.serverus.oom;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.internal.view.menu.MenuItemImpl;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +19,8 @@ import android.support.design.widget.NavigationView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Toolbar mToolBar;
@@ -37,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public Class fragmentClass = null;
 
     private MenuItem menuItemReserve = null;
+
+    private String fragClassName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,13 +181,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public boolean selectDrawerItem(MenuItem menuItem) {
 
-        // if the user click the same menu
-        // it wont do anything but just close the drawer
-        // to avoid redundant opening of fragments
-        if(menuItemReserve == menuItem){
-            mDrawerLayout.closeDrawers();
-            return false;
-        }else{
+
             // Create a new fragment and specify the planet to show based on
             // position
             switch(menuItem.getItemId()) {
@@ -194,6 +194,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 default:
                     break;
             }
+
+            // this is to determine if what fragment is currently showing
+            // if the user tap on the same menu item that shows that fragment
+            // we will return it false to avoid redundancy
+            if(fragClassName == fragmentClass.getName()){
+                mDrawerLayout.closeDrawers();
+                return false;
+            }
+
             menuItemReserve = menuItem;
             fragmentReplace(fragmentClass);
 
@@ -203,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //setTitle(menuItem.getTitle());
             //mDrawer.closeDrawers();
             return true;
-        }
+
     }
 
     public void fragmentReplace(Class fragmentClass) {
@@ -257,17 +266,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void updateTitleAndDrawer (Fragment fragment){
-        String fragClassName = fragment.getClass().getName();
-        Log.d("aoi", String.valueOf(menuItemReserve));
+        fragClassName = fragment.getClass().getName();
+
+
+        Log.d("aoi", "fragment name "+fragClassName);
         if (fragClassName.equals(FragmentAgency.class.getName())){
             // set the app bar title
             setTitle("Agency");
+
+
         }
         else if (fragClassName.equals(FragmentServices.class.getName())){
             setTitle ("Services");
+
         }else{
             setTitle ("OOm");
         }
     }
+
+
+
 
 }
