@@ -20,6 +20,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -73,6 +76,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+
+// JUST A PARSE SAMPLE
+//        ParseObject testObject = new ParseObject("TestObject");
+//        testObject.put("foo", "penumbres");
+//        testObject.saveInBackground();
 
     }
 
@@ -176,11 +184,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         selectDrawerItem(menuItem);
                         return false;
                     }
+
                 });
+
     }
 
     public boolean selectDrawerItem(MenuItem menuItem) {
-
 
             // Create a new fragment and specify the planet to show based on
             // position
@@ -210,7 +219,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Highlight the selected item, update the title, and close the drawer
             //menuItemReserve.setChecked(true);
             //setTitle(menuItem.getTitle());
-            //mDrawer.closeDrawers();
+            mDrawerLayout.closeDrawers();
             return true;
 
     }
@@ -237,10 +246,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // so you can go back to them when the user tap on the back hardware button
             ft.replace(R.id.flContent, fragment, FRAGMENT_TAG).addToBackStack(null);
         }
-
         // setTransition is to add some animation when opening a fragment
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit();
-        mDrawerLayout.closeDrawers();
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commit();
 
     }
 
@@ -264,17 +271,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
     private void updateTitleAndDrawer (Fragment fragment){
         fragClassName = fragment.getClass().getName();
-
 
         Log.d("aoi", "fragment name "+fragClassName);
         if (fragClassName.equals(FragmentAgency.class.getName())){
             // set the app bar title
             setTitle("Agency");
-
-
         }
         else if (fragClassName.equals(FragmentServices.class.getName())){
             setTitle ("Services");
@@ -283,8 +286,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setTitle ("OOm");
         }
     }
-
-
-
 
 }
