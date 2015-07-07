@@ -16,4 +16,11 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="agency_name">OOm</string>
+    <string name="agency_intro">We are the Navigators of the Digital Frontier because we live and breathe digital. We expertly navigate your business in a rapidly evolving digital landscape. Delivering high quality results through strategic solutions.</string>
+    <string name="agency_history1">Founded in 2006 as a search marketing agency, OOm has since grown to become a full-service digital marketing agency committed to working with clients throughout Asia and the Asia Pacific to meet their digital campaign goals. Headquatered in Singapore with offices in Indonesia, and the Philippines, the agency has expanded rapidly to accommodate the growing local and regional demands in digital marketing.</string>
+    <string name="agency_goal">The primary goals of OOm is to ensure that our clients will have high quality content and top notch customer service. Our methods to achieve these goals are through our expertise in navigating through the digital ecosystem. With proper strategy and execution, we ensure that our clients will meet their digital campaign objectives. OOm’s digital concept revolves around the 3C’s of digital or 3 Conversion stages.</string>
+    <string name="firs_conversior_label">1st Conversion</string>
+    <string name="first_convertion_meaning">Online Branding/Presence</string>
+    <string name="second_convertion_meaning">2nd Conversion</string>
 </resources>
