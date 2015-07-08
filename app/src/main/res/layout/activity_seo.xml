@@ -1,0 +1,200 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.serverus.oom.SeoActivity"
+    android:orientation="vertical"
+    >
+
+    <include android:id="@+id/app_bar" layout="@layout/app_bar" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Search Engine Optimization"
+                android:id="@+id/textView18"
+                android:layout_gravity="center_horizontal"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search Engine Optimization (SEO) is the process of modifying a website to increase web traffic and visibility in search engines through organic results. Fully optimizing website content and structure creates a site that is conducive to search engine indexing and allows for more visitors and sales."
+                android:id="@+id/textView17"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Why SEO?"
+                android:id="@+id/textView19"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Brand Exposure"
+                android:textColor="@color/primaryColor"
+                android:id="@+id/textView20"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Being included in the top ranks suggests that your web page has relevant and unique content. Let customers easily reach you by increasing your ranking and visibility."
+                android:id="@+id/textView21"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Increased Sales"
+                android:textColor="@color/primaryColor"
+                android:id="@+id/textView22"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Conversions are not possible without web traffic. Achieve more sales by generating good traffic to your website."
+                android:id="@+id/textView23"
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Targeted Traffic"
+                android:textColor="@color/primaryColor"
+                android:id="@+id/textView24"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A well developed site provides users with the right and relevant content. You can attract users who are in search of specific products, services, and information you provide by optimizing your website."
+                android:id="@+id/textView25"
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Connect Through Content"
+                android:textColor="@color/primaryColor"
+                android:id="@+id/textView26"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Content plays a huge part in Search Engine Optimization. Connect with new and existing customers by developing a website that offers a unique user experience to your visitors."
+                android:id="@+id/textView27"
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Cost -Effective"
+                android:textColor="@color/primaryColor"
+                android:id="@+id/textView28"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Techniques that offer quick and temporary increase in rankings can cost more and only deliver short term success. Organic search results provide long term stability and attract more traffic."
+                android:id="@+id/textView29"
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="The OOm Advantage"
+                android:id="@+id/textView30"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Ethical"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="We achieve your website business goals through ethical optimization methods. This means that our SEO practices are in accordance with Google Webmaster Guidelines and prevent our customers from being penalized by search engines."
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Transparent"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="We value your trust in our services and we express this by demonstrating transparency in our operations and communications. We keep you updated and on the loop so that you can keep track of your campaign."
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Tailor-made"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Our SEO Campaign Consultants provide you with tailor-made strategies that are aligned with your business goals. We strategize based on your business objectives to get the finest results for your campaign."
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Search Engine Certified"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="We provide SEO services to Baidu, Bing, Google, and Yahoo. OOm is a certified partner of Google Adwords and Yahoo Southeast Asia Search Marketing. Our certifications and expertise in various search engines permit us to get the finest results possible."
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

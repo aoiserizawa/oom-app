@@ -1,0 +1,188 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.serverus.oom.ContentMrktngActivity"
+    android:orientation="vertical"
+    >
+
+    <include android:id="@+id/app_bar" layout="@layout/app_bar" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Content Marketing"
+                android:id="@+id/textView18"
+                android:layout_gravity="center_horizontal"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Content Marketing is quickly becoming an important component of any digital marketing campaign. Customer engagement is especially vital now. Content marketing is about engaging and building a relationship with your audience as well as keeping them well-informed. A successful content marketing campaign establishes you as an expert in your field which increases your company’s credibility and brand."
+                android:id="@+id/textView17"
+                android:padding="5dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Why Content Marketing?"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Original Content"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Original content not only engages with the customers but it also distinguishes your content in different search engines. In a highly competitive market, this will make your website easily identifiable compared to similar websites."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Information rich"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Information rich and appealing content will maintain and build audience following. Information rich and appealing content will encourage your customers to share your content which in turn broadens your audience."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Branding"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Content marketing increases your company’s credibility by establishing your company as an expert in your field. It differentiates your company from similar websites and companies."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Engage"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Content is the best way to engage and connect with your audience. It is essential to engage with your audience to initiate a consistent audience following."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Content is King"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Without original and desirable content online, marketing campaigns will likely fail because of the audience’s lack of appeal regardless of other design factors."
+                android:padding="5dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="The OOm Advantage"
+                android:id="@+id/textView30"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Market Analysis"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="In a highly competitive market, it is important to differentiate your company from other similar markets. Market analysis is important to establish what works and what does not work with consumers."
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Market Knowledge"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Our knowledge of market behaviour and search engine optimization will ensure that your marketing campaign will be strategized and executed proficiently."
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Content Strategy"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Through market research and our knowledge of market behaviour, we can expertly organize your content strategy. An excellent content strategy will guarantee that your campaign will be successful."
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Lead Generation and Nurturing"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Consistent and interesting content generates potential leads for your company. Once we establish your audience, consistent engagement and interesting content is necessary to keep your company connected to your audience."
+                android:padding="5dp"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

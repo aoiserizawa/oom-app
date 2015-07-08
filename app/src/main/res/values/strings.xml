@@ -23,4 +23,10 @@
     <string name="firs_conversior_label">1st Conversion</string>
     <string name="first_convertion_meaning">Online Branding/Presence</string>
     <string name="second_convertion_meaning">2nd Conversion</string>
+    <string name="title_activity_seo">Search Engine Optimization</string>
+    <string name="title_activity_sem">Search Engine Marketing</string>
+    <string name="title_activity_smm">Social Media Marketing</string>
+    <string name="title_activity_content_mrktng">Content Marketing</string>
+    <string name="title_activity_banner_ad">BannerAdActivity</string>
+    <string name="title_activity_web_dev">Web Design and Development</string>
 </resources>

@@ -1,0 +1,178 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.serverus.oom.WebDevActivity"
+    android:orientation="vertical"
+    >
+
+    <include android:id="@+id/app_bar" layout="@layout/app_bar" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Web Design and Development"
+                android:layout_gravity="center_horizontal"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Web Development is an essential component in any digital marketing campaign. It will greatly impact the effectiveness of your marketing campaign. A website is basically your digital business card. A successful website communicates what your brand is all about. It should also boost brand awareness and consistent online traffic. Increase in brand awareness and online traffic would translate to more interest and business for your company."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Why Web Design and Development?"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Usability"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Websites should be fully function and easy to manoeuvre. Usability is a big factor on what makes a website sustainable. Usability makes it easy for visitors or potential customers to access information, services, and products of your company."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="User Interface"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A clean and efficient user interface makes it pleasing and easy for your potential customers to visit your site. It encourages consistent online traffic to your website which would increase your brand awareness."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Site Architecture"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Site architecture essentially lays the ground work for the rest of your website. It makes your website efficient technically, aesthetically, and functionally."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Design"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Web design plays a huge factor in web development. A web design that is not aesthetically pleasing will not produce consistent online traffic. A great web design would give a good first and lasting impression of your company."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Conversion Optimization"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Conversion optimization is the method of using analytics and user feedback to increase leads and sales without spending money on attracting more potential customers. A high conversion rate means a better return of investment for your campaign."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="The OOm Advantage"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="SEO Knowledge"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="One of the numerous advantages of choosing OOm for your web development is our integration of Search Engine Optimization within your website’s architecture. Our understanding of SEO will be exceptionally beneficial for your campaign."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Transparency"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OOm highly supports open communication with our clients. We understand the different challenges that are faced with a digital marketing campaign. We work with you to help achieve the objectives and results that you want."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Quality"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="We ensure that your website would have innovative and quality features. Our expertise in web development will guarantee a successfully executed campaign. Our knowledge and understanding of market behaviour will also have a significant impact on the quality of our results."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Results"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Through analytics and user feedback, we are able to properly optimize your website. In optimizing your website, we ensure that your investment is properly utilized towards your campaign goals as well as increasing brand awareness towards your company."
+                android:padding="5dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

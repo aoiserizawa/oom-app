@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.serverus.oom" >
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -23,8 +25,28 @@
             android:label="OOm" >
         </activity>
         <activity
-            android:name=".AgencyActivity"
-            android:label="@string/title_activity_agency" >
+            android:name=".SeoActivity"
+            android:label="@string/title_activity_seo" >
+        </activity>
+        <activity
+            android:name=".SemActivity"
+            android:label="@string/title_activity_sem" >
+        </activity>
+        <activity
+            android:name=".SmmActivity"
+            android:label="@string/title_activity_smm" >
+        </activity>
+        <activity
+            android:name=".ContentMrktngActivity"
+            android:label="@string/title_activity_content_mrktng" >
+        </activity>
+        <activity
+            android:name=".BannerAdActivity"
+            android:label="@string/title_activity_banner_ad" >
+        </activity>
+        <activity
+            android:name=".WebDevActivity"
+            android:label="@string/title_activity_web_dev" >
         </activity>
     </application>
 

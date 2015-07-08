@@ -1,0 +1,193 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.serverus.oom.SemActivity"
+    android:orientation="vertical"
+    >
+
+    <include android:id="@+id/app_bar" layout="@layout/app_bar" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Search Engine Marketing"
+                android:layout_gravity="center_horizontal"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search Engine Marketing (SEM) is the process of getting more visibility for your website on search engines. Company visibility is extremely vital in a very competitive global market. SEM allows you to advertise to an audience that can potentially be your customers or clients. By using search engines as a tool to determine who to target ads to, it saves you a lot of time and money."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Why SEM?"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Targeted Ads"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SEM allows you to target your ads based on user searches. This allows you to advertise to people who would most likely be interested in your products."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Cost-Effective"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Compared to traditional advertising mediums, SEM is more cost-effective. This is because of highly targeted ads that help you maximize your investment in digital marketing."
+                android:padding="5dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Competitive"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The global market is extremely competitive. It is hard to stand out when there are multiple of websites that are offering the same products or services. SEM gives your business the attention it deserves."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Quantifiable"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="With SEM, you have the ability to measure and analyse statistics. This gives you the answers you need to modify and enhance your digital marketing campaign."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="24/7 Brand Exposure"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SEM is an excellent way to get as much exposure for your business as possible. With search engines getting a billion searches per day, getting your brand highlighted can give your business a considerable advantage versus similar competitors."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="The OOm Advantage"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Holistic Approach "
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="As a full-service digital marketing agency, we take a holistic approach when it comes to our services. We integrate our knowledge of market behaviour as well as our varied specializations and expertise to give you the most holistic strategies and solutions."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Transparency"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="We value your trust in our services and we express this by demonstrating transparency in our operations and communications. We keep you updated and on the loop so that you can keep track of your campaign."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Experience"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Experience is a huge factor in determining the right strategy for your SEM campaign. Our knowledge and understanding of market behaviour will help you in choosing the best approach for your SEM campaign."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Experience"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Experience is a huge factor in determining the right strategy for your SEM campaign. Our knowledge and understanding of market behaviour will help you in choosing the best approach for your SEM campaign."
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Dedicated Customer Service"
+                android:textColor="@color/primaryColor"
+                android:padding="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Our SEM professionals have dedicated customer service which is why we are the forerunner in our industry. We are committed in working very closely with you to ensure your campaign is a success."
+                android:padding="5dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
