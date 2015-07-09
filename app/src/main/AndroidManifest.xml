@@ -48,6 +48,10 @@
             android:name=".WebDevActivity"
             android:label="@string/title_activity_web_dev" >
         </activity>
+        <activity
+            android:name=".ServiceActivity"
+            android:label="@string/title_activity_service" >
+        </activity>
     </application>
 
 </manifest>
