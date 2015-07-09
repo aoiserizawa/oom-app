@@ -25,30 +25,6 @@
             android:label="OOm" >
         </activity>
         <activity
-            android:name=".SeoActivity"
-            android:label="@string/title_activity_seo" >
-        </activity>
-        <activity
-            android:name=".SemActivity"
-            android:label="@string/title_activity_sem" >
-        </activity>
-        <activity
-            android:name=".SmmActivity"
-            android:label="@string/title_activity_smm" >
-        </activity>
-        <activity
-            android:name=".ContentMrktngActivity"
-            android:label="@string/title_activity_content_mrktng" >
-        </activity>
-        <activity
-            android:name=".BannerAdActivity"
-            android:label="@string/title_activity_banner_ad" >
-        </activity>
-        <activity
-            android:name=".WebDevActivity"
-            android:label="@string/title_activity_web_dev" >
-        </activity>
-        <activity
             android:name=".ServiceActivity"
             android:label="@string/title_activity_service" >
         </activity>
