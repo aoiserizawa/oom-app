@@ -200,6 +200,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case R.id.services_menu_item:
                     fragmentClass = FragmentServices.class;
                     break;
+                case R.id.login_menu_item:
+                    fragmentClass = FragmentLogin.class;
+                    break;
                 default:
                     break;
             }
