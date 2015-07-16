@@ -29,5 +29,10 @@
             android:id="@+id/login_menu_item"
             android:title="Login"/>
 
+        <item
+            android:visible="false"
+            android:id="@+id/logout_menu_item"
+            android:title="Logout"/>
+
     </group>
 </menu>

@@ -2,6 +2,7 @@ package com.serverus.oom;
 
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -444,6 +445,7 @@ public class FragmentServices extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_services, container, false);
+        getActivity().setTitle("Services");
 
         initView(view);
 
@@ -536,6 +538,6 @@ public class FragmentServices extends Fragment implements View.OnClickListener {
         intent.putExtras(bundle);
         startActivity(intent);
 
-
     }
+
 }

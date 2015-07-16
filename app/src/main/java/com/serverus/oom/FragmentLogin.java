@@ -1,6 +1,7 @@
 package com.serverus.oom;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
@@ -12,14 +13,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FragmentLogin extends Fragment {
-    private TextInputLayout _emailLayout;
+    private TextInputLayout _userNameLayout;
     private TextInputLayout _passwordLayout;
-    private EditText _emailText;
+    private EditText _userNameText;
     private EditText _passwordText;
     private Button _loginBtn;
     private Button _registerBtn;
@@ -43,9 +48,9 @@ public class FragmentLogin extends Fragment {
     }
 
     public void initViews(View view){
-        _emailText = (EditText) view.findViewById(R.id.edit_text_email);
+        _userNameText = (EditText) view.findViewById(R.id.edit_text_username);
         _passwordText = (EditText) view.findViewById(R.id.edit_text_password);
-        _emailLayout = (TextInputLayout) view.findViewById(R.id.email_layout);
+        _userNameLayout = (TextInputLayout) view.findViewById(R.id.username_layout);
         _passwordLayout = (TextInputLayout) view.findViewById(R.id.password_layout);
         _loginBtn = (Button) view.findViewById(R.id.login_btn);
         _registerBtn = (Button) view.findViewById(R.id.register_btn);
@@ -74,28 +79,62 @@ public class FragmentLogin extends Fragment {
             return;
         }
 
+        _loginBtn.setEnabled(false);
+
+        String username = _userNameText.getText().toString();
+        String password = _passwordText.getText().toString();
+
+        final ProgressDialog progressDialog = new ProgressDialog(getActivity(),
+                R.style.AppTheme_Dark_Dialog);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Loging in...");
+        progressDialog.show();
+
+        ParseUser.logInInBackground(username, password,
+                new LogInCallback() {
+
+                    @Override
+                    public void done(ParseUser parseUser, ParseException e) {
+                        if (parseUser != null) {
+                            // If user exist and authenticated, send user to Welcome.class
+                            progressDialog.dismiss();
+                            Toast.makeText(getActivity(),
+                                    "Successfully Logged in",
+                                    Toast.LENGTH_LONG).show();
+
+                            Intent refresh = new Intent(getActivity(), MainActivity.class);
+                            startActivity(refresh);
+                            getActivity().finish();
+
+                        } else {
+                            Toast.makeText(
+                                    getActivity(),
+                                    e.getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
     }
 
     public void onLoginFailed() {
         Toast.makeText(getActivity(), "Login failed", Toast.LENGTH_LONG).show();
-        //_loginButton.setEnabled(true);
+        _loginBtn.setEnabled(true);
     }
-
-
 
     public boolean validate() {
         boolean valid = true;
 
-        String email = _emailText.getText().toString();
+        String username = _userNameText.getText().toString();
         String password = _passwordText.getText().toString();
 
 
-        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            _emailLayout.setErrorEnabled(true);
-            _emailLayout.setError("enter a valid email address");
+        if (username.isEmpty() || username.length() < 3) {
+            _userNameLayout.setErrorEnabled(true);
+            _userNameLayout.setError("enter a valid Username");
             valid = false;
         } else {
-            _emailText.setError(null);
+            _userNameLayout.setError(null);
         }
 
         if (password.isEmpty() || password.length() < 4 || password.length() > 10) {

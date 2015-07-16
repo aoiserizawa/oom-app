@@ -82,6 +82,7 @@ public class SignupActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),
                             "Successfully Signed up, please log in.",
                             Toast.LENGTH_LONG).show();
+
                 } else {
                     Toast.makeText(getApplicationContext(),
                             e.getMessage(), Toast.LENGTH_LONG).show();
@@ -141,7 +142,7 @@ public class SignupActivity extends AppCompatActivity {
         }else{
             _confirmPasswordLayout.setError(null);
         }
-        
+
         return valid;
     }
 

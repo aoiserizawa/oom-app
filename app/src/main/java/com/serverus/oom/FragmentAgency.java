@@ -1,6 +1,7 @@
 package com.serverus.oom;
 
 
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -26,33 +27,7 @@ public class FragmentAgency extends Fragment {
     }
 
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_agency, container, false);
-
-//        bannerBackground = (ImageView) view.findViewById(R.id.background_banner);
-//        firstConvertionImg = (ImageView) view.findViewById(R.id.first_converstion_image);
-//        secondConvertionImg = (ImageView) view.findViewById(R.id.second_converstion_image);
-//        thirdConvertionImg = (ImageView) view.findViewById(R.id.third_conversion_image);
-//
-//        bannerBackground.setImageBitmap(
-//                decodeSampledBitmapFromResource(getResources(), R.drawable.agency_background_banner, 100, 100));
-//
-//        firstConvertionImg.setImageBitmap(
-//                decodeSampledBitmapFromResource(getResources(), R.drawable.first_conversion, 200, 100));
-//
-//        secondConvertionImg.setImageBitmap(
-//                decodeSampledBitmapFromResource(getResources(), R.drawable.second_conversion, 200, 100));
-//
-//        thirdConvertionImg.setImageBitmap(
-//                decodeSampledBitmapFromResource(getResources(), R.drawable.third_conversion, 200, 100));
-
-        return view;
-    }
-
-//    public static int calculateInSampleSize(
+    //    public static int calculateInSampleSize(
 //            BitmapFactory.Options options, int reqWidth, int reqHeight) {
 //        // Raw height and width of image
 //        final int height = options.outHeight;
@@ -89,7 +64,38 @@ public class FragmentAgency extends Fragment {
 //        // Decode bitmap with inSampleSize set
 //        options.inJustDecodeBounds = false;
 //        return BitmapFactory.decodeResource(res, resId, options);
-//    }
 
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_agency, container, false);
+
+        getActivity().setTitle("Agency");
+
+//        bannerBackground = (ImageView) view.findViewById(R.id.background_banner);
+//        firstConvertionImg = (ImageView) view.findViewById(R.id.first_converstion_image);
+//        secondConvertionImg = (ImageView) view.findViewById(R.id.second_converstion_image);
+//        thirdConvertionImg = (ImageView) view.findViewById(R.id.third_conversion_image);
+//
+//        bannerBackground.setImageBitmap(
+//                decodeSampledBitmapFromResource(getResources(), R.drawable.agency_background_banner, 100, 100));
+//
+//        firstConvertionImg.setImageBitmap(
+//                decodeSampledBitmapFromResource(getResources(), R.drawable.first_conversion, 200, 100));
+//
+//        secondConvertionImg.setImageBitmap(
+//                decodeSampledBitmapFromResource(getResources(), R.drawable.second_conversion, 200, 100));
+//
+//        thirdConvertionImg.setImageBitmap(
+//                decodeSampledBitmapFromResource(getResources(), R.drawable.third_conversion, 200, 100));
+
+        return view;
+    }
+
+
+//    }
 
 }

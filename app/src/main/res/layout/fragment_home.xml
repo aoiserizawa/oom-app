@@ -41,9 +41,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lorem Ipsum"
+                        android:text="We are the Navigators of The Digital Frontier "
                         android:id="@+id/textView"
-                        android:textSize="30dp"
+                        android:textSize="20dp"
                         android:textColor="#000000"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"
@@ -52,7 +52,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Loriem Ipsum Sit Dolor Amet"
+                        android:text="We expertly navigate your business in a rapidly evolving digital landscape."
                         android:id="@+id/textView2"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
@@ -91,9 +91,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lorem Ipsum"
+                        android:text="Forward thinkers make for best partners"
                         android:id="@+id/textView3"
-                        android:textSize="30dp"
+                        android:textSize="20dp"
                         android:textColor="#000000"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"
@@ -102,7 +102,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Loriem Ipsum Sit Dolor Amet"
+                        android:text="From start to finish, OOm delivers smart solutions to ensure that your unique goals are met."
                         android:id="@+id/textView4"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
@@ -140,9 +140,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lorem Ipsum"
+                        android:text="Talk is cheap. We prefer action."
                         android:id="@+id/textView5"
-                        android:textSize="30dp"
+                        android:textSize="20dp"
                         android:textColor="#000000"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"
@@ -151,7 +151,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Loriem Ipsum Sit Dolor Amet"
+                        android:text="We expertly navigate your business in a rapidly evolving digital landscape. "
                         android:id="@+id/textView6"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"

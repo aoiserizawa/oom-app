@@ -1,6 +1,5 @@
 package com.serverus.oom;
 
-import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
@@ -10,7 +9,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.internal.view.menu.MenuItemImpl;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +20,7 @@ import android.widget.RelativeLayout;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 
@@ -31,10 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ActionBarDrawerToggle mdrawerToggle;
     private DrawerLayout mDrawerLayout;
 
-    private RelativeLayout digitalFrontier;
-    private RelativeLayout forwardThinkers;
-    private RelativeLayout preferedActions;
-
     private LinearLayout innerParent;
     private final String FRAGMENT_TAG = "myfragmenttag";
 
@@ -43,7 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public Fragment fragment = null;
     public Class fragmentClass = null;
 
+    private Menu mMenu;
     private MenuItem menuItemReserve = null;
+    private MenuItem loginMenu;
+    public MenuItem logoutMenu;
 
     private String fragClassName;
 
@@ -53,9 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         initViews();
-//        digitalFrontier.setOnClickListener(this);
-//        forwardThinkers.setOnClickListener(this);
-//        preferedActions.setOnClickListener(this);
 
         if(savedInstanceState != null){
             getSupportFragmentManager().findFragmentByTag(FRAGMENT_TAG);
@@ -63,6 +58,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else{
             fragmentClass = FragmentHome.class;
             fragmentReplace(fragmentClass);
+        }
+
+
+        ParseUser currentUser = ParseUser.getCurrentUser();
+
+        if(currentUser != null){
+            loginMenu.setVisible(false);
+            logoutMenu.setVisible(true);
         }
 
         // this will determine if we are using the BackStack
@@ -76,11 +79,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
-
-// JUST A PARSE SAMPLE
-//        ParseObject testObject = new ParseObject("TestObject");
-//        testObject.put("foo", "penumbres");
-//        testObject.saveInBackground();
 
     }
 
@@ -135,16 +133,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawerLayout.setDrawerListener(mdrawerToggle);
         // indicator based on whether the drawerlayout is in open or closed
         mdrawerToggle.syncState();
-
-//        digitalFrontier = (RelativeLayout) findViewById(R.id.digital_frontier);
-//        forwardThinkers = (RelativeLayout) findViewById(R.id.forward_thinkers);
-//        preferedActions = (RelativeLayout) findViewById(R.id.prefered_actions);
-
         innerParent = (LinearLayout) findViewById(R.id.inner_parent);
-
         setupDrawerContent(mDrawer);
-        //mDrawer.setNavigationItemSelectedListener(this);
 
+        mMenu = mDrawer.getMenu();
+        loginMenu =  mMenu.findItem(R.id.login_menu_item);
+        logoutMenu = mMenu.findItem(R.id.logout_menu_item);
+
+        //mDrawer.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -186,7 +182,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
 
                 });
-
     }
 
     public boolean selectDrawerItem(MenuItem menuItem) {
@@ -202,6 +197,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
                 case R.id.login_menu_item:
                     fragmentClass = FragmentLogin.class;
+                    break;
+                case R.id.logout_menu_item:
+                    logout();
                     break;
                 default:
                     break;
@@ -225,6 +223,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mDrawerLayout.closeDrawers();
             return true;
 
+    }
+
+    private void logout() {
+        ParseUser.logOut();
+        loginMenu.setVisible(true);
+        logoutMenu.setVisible(false);
     }
 
     public void fragmentReplace(Class fragmentClass) {
