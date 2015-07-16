@@ -1,0 +1,242 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.serverus.oom.FragmentServices"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/seo_container">
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="180dp"
+                        android:src="@drawable/seo_icon"
+                        android:alpha="0.5"
+                        android:id="@+id/imageView7" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Search Engine Optimization"
+                        android:textSize="20dp"
+                        android:textColor="#000000"
+                        android:layout_gravity="bottom"
+                        android:textAlignment="center"
+                        android:gravity="center_horizontal"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignRight="@+id/imageView7"
+                        android:layout_alignEnd="@+id/imageView7"
+                        android:alpha="0.8"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sem_container">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="180dp"
+                        android:src="@drawable/sem_icon"
+                        android:alpha="0.5"
+                        android:id="@+id/imageView8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Search Engine Marketing"
+                        android:textSize="20dp"
+                        android:textColor="#000000"
+                        android:layout_gravity="bottom"
+                        android:textAlignment="center"
+                        android:gravity="center_horizontal"
+                        android:layout_alignParentBottom="true"
+                        android:alpha="0.8"
+                        android:textStyle="bold"
+                        android:layout_alignRight="@+id/imageView8"
+                        android:layout_alignEnd="@+id/imageView8" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/smm_container">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="180dp"
+                        android:src="@drawable/sem_icon"
+                        android:alpha="0.5"
+                        android:id="@+id/imageView6"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Social Media Marketing"
+                        android:textSize="20dp"
+                        android:textColor="#000000"
+                        android:layout_gravity="bottom"
+                        android:textAlignment="center"
+                        android:layout_alignParentBottom="true"
+                        android:gravity="center_horizontal"
+                        android:layout_alignRight="@+id/imageView6"
+                        android:layout_alignEnd="@+id/imageView6"
+                        android:alpha="0.8"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/content_mrktng_container">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="180dp"
+                        android:src="@drawable/content_mrtkng_icon"
+                        android:alpha="0.5"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Content Marketing"
+                        android:textSize="20dp"
+                        android:textColor="#000000"
+                        android:layout_gravity="bottom"
+                        android:textAlignment="center"
+                        android:gravity="center_horizontal"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:alpha="0.8"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/banner_ad_container">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="180dp"
+                        android:src="@drawable/banner_ad_icon"
+                        android:alpha="0.5"
+                        android:id="@+id/imageView5" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Banner Advertising"
+                        android:textSize="20dp"
+                        android:textColor="#000000"
+                        android:layout_gravity="bottom"
+                        android:textAlignment="center"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center_horizontal"
+                        android:alpha="0.8"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/webdev_content">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="180dp"
+                        android:alpha="0.5"
+                        android:src="@drawable/web_dev_icon"
+                        android:id="@+id/imageView9" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Web Design and Development"
+                        android:textSize="20dp"
+                        android:textColor="#000000"
+                        android:layout_gravity="bottom"
+                        android:textAlignment="center"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginBottom="26dp"
+                        android:gravity="center_horizontal"
+                        android:alpha="0.8"
+                        android:textStyle="bold"
+                        android:layout_alignRight="@+id/imageView9"
+                        android:layout_alignEnd="@+id/imageView9" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" android:orientation="horizontal">-->
+
+            <!--<RelativeLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<ImageView-->
+            <!--android:layout_width="190dp"-->
+            <!--android:layout_height="150dp"-->
+            <!--android:alpha="0.5"-->
+            <!--android:src="@drawable/baidu_ad_icon"/>-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Baidu Advertising"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="#000000"-->
+            <!--android:layout_gravity="bottom"-->
+            <!--android:textAlignment="center"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:alpha="0.8"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:textStyle="bold" />-->
+
+            <!--</RelativeLayout>-->
+
+            <!--</LinearLayout>-->
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

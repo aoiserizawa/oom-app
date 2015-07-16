@@ -73,6 +73,7 @@ public class FragmentAgency extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_agency, container, false);
 
+        // this solve the problem when the orientation changed it goes back to "OOm"
         getActivity().setTitle("Agency");
 
 //        bannerBackground = (ImageView) view.findViewById(R.id.background_banner);
