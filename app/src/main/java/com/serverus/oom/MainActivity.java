@@ -64,8 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ParseUser currentUser = ParseUser.getCurrentUser();
 
         if(currentUser != null){
-            loginMenu.setVisible(false);
-            logoutMenu.setVisible(true);
+            enableUserLogedin(true);
         }
 
         // this will determine if we are using the BackStack
@@ -291,6 +290,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }else{
             setTitle ("OOm");
+        }
+    }
+
+    public void enableUserLogedin(boolean logedin){
+        if(logedin == true){
+            loginMenu.setVisible(false);
+            logoutMenu.setVisible(true);
         }
     }
 
