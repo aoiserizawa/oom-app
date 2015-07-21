@@ -9,30 +9,30 @@
             android:id="@+id/services_menu_item"
             android:title="@string/services_menu_item"/>
 
-        <item
-            android:id="@+id/work_menu_item"
-            android:title="@string/work_menu_item"/>
+        <!--<item-->
+            <!--android:id="@+id/work_menu_item"-->
+            <!--android:title="@string/work_menu_item"/>-->
 
-        <item
-            android:id="@+id/news_menu_item"
-            android:title="@string/news_menu_item"/>
+        <!--<item-->
+            <!--android:id="@+id/news_menu_item"-->
+            <!--android:title="@string/news_menu_item"/>-->
 
-        <item
-            android:id="@+id/blog_menu_item"
-            android:title="@string/blog_menu_item"/>
+        <!--<item-->
+            <!--android:id="@+id/blog_menu_item"-->
+            <!--android:title="@string/blog_menu_item"/>-->
 
         <item
             android:id="@+id/contact_menu_item"
             android:title="@string/contact_menu_item"/>
 
-        <item
-            android:id="@+id/login_menu_item"
-            android:title="Login"/>
+        <!--<item-->
+            <!--android:id="@+id/login_menu_item"-->
+            <!--android:title="Login"/>-->
 
-        <item
-            android:visible="false"
-            android:id="@+id/logout_menu_item"
-            android:title="Logout"/>
+        <!--<item-->
+            <!--android:visible="false"-->
+            <!--android:id="@+id/logout_menu_item"-->
+            <!--android:title="Logout"/>-->
 
     </group>
 </menu>
