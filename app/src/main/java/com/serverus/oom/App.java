@@ -3,6 +3,7 @@ package com.serverus.oom;
 import android.app.Application;
 
 import com.parse.Parse;
+import com.parse.ParseObject;
 
 /**
  * Created by alvinvaldez on 7/6/15.
@@ -17,6 +18,7 @@ public class App extends Application {
         super.onCreate();
 
         Parse.enableLocalDatastore(this);
+        ParseObject.registerSubclass(Enquiry.class);
         Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
     }
 }
