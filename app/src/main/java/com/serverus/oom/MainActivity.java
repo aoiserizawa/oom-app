@@ -24,7 +24,7 @@ import com.parse.ParseUser;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity {
     private Toolbar mToolBar;
     private NavigationView mDrawer;
     private ActionBarDrawerToggle mdrawerToggle;
@@ -136,39 +136,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setupDrawerContent(mDrawer);
 
         mMenu = mDrawer.getMenu();
-        loginMenu =  mMenu.findItem(R.id.login_menu_item);
-        logoutMenu = mMenu.findItem(R.id.logout_menu_item);
+//        loginMenu =  mMenu.findItem(R.id.login_menu_item);
+//        logoutMenu = mMenu.findItem(R.id.logout_menu_item);
 
         //mDrawer.setNavigationItemSelectedListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-
-        if(v.getId() == R.id.digital_frontier || v.getId() == R.id.forward_thinkers ||
-                v.getId() == R.id.prefered_actions ){
-
-            detailActivity(v);
-        }
-    }
-
-    private void detailActivity(View view){
-
-
-        switch (view.getId()){
-            case R.id.digital_frontier:
-                viewVar = "digital frontier";
-                break;
-            case R.id.forward_thinkers:
-                viewVar = "forward thinkers";
-                break;
-            case R.id.prefered_actions:
-
-                viewVar = "prefered actions";
-                break;
-        }
-
-        Snackbar.make(mDrawerLayout, viewVar , Snackbar.LENGTH_LONG).show();
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
@@ -194,12 +165,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 case R.id.services_menu_item:
                     fragmentClass = FragmentServices.class;
                     break;
-                case R.id.login_menu_item:
-                    fragmentClass = FragmentLogin.class;
+                case R.id.contact_menu_item:
+                    fragmentClass = FragmentContactUs.class;
                     break;
-                case R.id.logout_menu_item:
-                    logout();
-                    break;
+//                case R.id.login_menu_item:
+//                    fragmentClass = FragmentLogin.class;
+//                    break;
+//                case R.id.logout_menu_item:
+//                    logout();
+//                    break;
                 default:
                     break;
             }
@@ -288,6 +262,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (fragClassName.equals(FragmentServices.class.getName())){
             setTitle ("Services");
 
+        }
+        else if (fragClassName.equals(FragmentContactUs.class.getName())){
+            setTitle ("Contact Us");
+
         }else{
             setTitle ("OOm");
         }
@@ -295,8 +273,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void enableUserLogedin(boolean logedin){
         if(logedin == true){
-            loginMenu.setVisible(false);
-            logoutMenu.setVisible(true);
+//            loginMenu.setVisible(false);
+//            logoutMenu.setVisible(true);
         }
     }
 
