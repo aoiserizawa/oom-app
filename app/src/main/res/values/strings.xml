@@ -31,4 +31,26 @@
     <string name="title_activity_web_dev">Web Design and Development</string>
     <string name="title_activity_service">ServiceActivity</string>
     <string name="title_activity_signup">OOm Signup</string>
+
+    <string-array name="services_array">
+        <item>Service?</item>
+        <item>Search Engine Optimization</item>
+        <item>Searc Engine Marketing</item>
+        <item>Social Media Marketing</item>
+        <item>Content Marketing</item>
+        <item>Banner Advertising</item>
+        <item>Web Design and Development</item>
+        <item>Baidu Advertising</item>
+    </string-array>
+
+    <string-array name="findUs_array">
+        <item>How did you find us?</item>
+        <item>Google</item>
+        <item>Yahoo</item>
+        <item>Bing</item>
+        <item>Facebook</item>
+        <item>Referral</item>
+        <item>Events</item>
+        <item>Others</item>
+    </string-array>
 </resources>
