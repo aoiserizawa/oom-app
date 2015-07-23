@@ -4,7 +4,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
 import android.content.res.Configuration;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,15 +13,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.support.design.widget.NavigationView;
-import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
-import com.parse.Parse;
-import com.parse.ParseObject;
 import com.parse.ParseUser;
-
-import java.util.ArrayList;
+import com.serverus.oom.fragments.FragmentAgency;
+import com.serverus.oom.fragments.FragmentContactUs;
+import com.serverus.oom.fragments.FragmentHome;
+import com.serverus.oom.fragments.FragmentServices;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar mToolBar;
@@ -44,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public MenuItem logoutMenu;
 
     private String fragClassName;
+    private String passedFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +50,37 @@ public class MainActivity extends AppCompatActivity {
 
         initViews();
 
+       passedFragment = this.getIntent().getExtras().getString("fragmentClass");
+
+        Log.d("aoi", passedFragment);
+
         if(savedInstanceState != null){
             getSupportFragmentManager().findFragmentByTag(FRAGMENT_TAG);
 
-        }else{
-            fragmentClass = FragmentHome.class;
-            fragmentReplace(fragmentClass);
         }
 
+            switch (passedFragment){
+                case "com.serverus.oom.fragments.FragmentAgency":
+                    fragmentClass = FragmentAgency.class;
+
+                    menuItemReserve = mMenu.findItem(R.id.agency_menu_item);
+                    break;
+                case "com.serverus.oom.fragments.FragmentServices":
+                    fragmentClass = FragmentServices.class;
+                    menuItemReserve = mMenu.findItem(R.id.services_menu_item);
+                    break;
+                case "com.serverus.oom.fragments.FragmentContactUs":
+                    fragmentClass = FragmentContactUs.class;
+                    menuItemReserve = mMenu.findItem(R.id.contact_menu_item);
+                    break;
+                default:
+                    fragmentClass = FragmentAgency.class;
+                    break;
+            }
+
+
+            Log.d("aoi", fragmentClass.getName());
+            fragmentReplace(fragmentClass);
 
         ParseUser currentUser = ParseUser.getCurrentUser();
 
@@ -76,6 +97,13 @@ public class MainActivity extends AppCompatActivity {
                 if (f != null) {
                     updateTitleAndDrawer(f);
                 }
+
+                int backCount = getSupportFragmentManager().getBackStackEntryCount();
+
+                if(backCount == 0){
+                    finish();
+                }
+
             }
         });
 
@@ -136,9 +164,9 @@ public class MainActivity extends AppCompatActivity {
         setupDrawerContent(mDrawer);
 
         mMenu = mDrawer.getMenu();
+
 //        loginMenu =  mMenu.findItem(R.id.login_menu_item);
 //        logoutMenu = mMenu.findItem(R.id.logout_menu_item);
-
         //mDrawer.setNavigationItemSelectedListener(this);
     }
 
@@ -181,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
             // this is to determine if what fragment is currently showing
             // if the user tap on the same menu item that shows that fragment
             // we will return it false to avoid redundancy
-            if(fragClassName == fragmentClass.getName()){
+            if(fragClassName == fragmentClass.getName() || menuItemReserve == menuItem){
                 mDrawerLayout.closeDrawers();
                 return false;
             }
@@ -215,9 +243,9 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = this.getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
 
-        if (fragmentClass == FragmentHome.class) {
-            ft.replace(R.id.flContent, fragment);
-        } else {
+//        if (getFragmentManager().getBackStackEntryCount() == 0) {
+//            ft.replace(R.id.flContent, fragment);
+//        } else {
             // the FRAGMENT_TAG constant is used for
             // saveInstatanceState when the user change orientation
             // the fragment will still remain
@@ -225,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
             // addToBackStack is used to have a reference from the previous fragments
             // so you can go back to them when the user tap on the back hardware button
             ft.replace(R.id.flContent, fragment, FRAGMENT_TAG).addToBackStack(null);
-        }
+        //}
         // setTransition is to add some animation when opening a fragment
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commit();
 
@@ -235,6 +263,7 @@ public class MainActivity extends AppCompatActivity {
     // tap on the back hardware button
     @Override
     public void onBackPressed() {
+
         // this will determine if the backstack is zero
         // and will make the menuItemReserve back to null
         // to empty from previous selected item
@@ -258,14 +287,15 @@ public class MainActivity extends AppCompatActivity {
         if (fragClassName.equals(FragmentAgency.class.getName())){
             // set the app bar title
             setTitle("Agency");
+            mMenu.findItem(R.id.agency_menu_item).setChecked(true);
         }
         else if (fragClassName.equals(FragmentServices.class.getName())){
             setTitle ("Services");
-
+            mMenu.findItem(R.id.services_menu_item).setChecked(true);
         }
         else if (fragClassName.equals(FragmentContactUs.class.getName())){
             setTitle ("Contact Us");
-
+            mMenu.findItem(R.id.contact_menu_item).setChecked(true);
         }else{
             setTitle ("OOm");
         }
