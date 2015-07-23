@@ -23,7 +23,7 @@ public class SplashScreen extends AppCompatActivity {
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }finally{
-                    Intent i = new Intent(getBaseContext(), MainActivity.class);
+                    Intent i = new Intent(getBaseContext(), ScreenSlideActivity.class);
                     startActivity(i);
                 }
             }
