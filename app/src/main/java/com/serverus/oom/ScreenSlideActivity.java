@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.serverus.oom.fragments.ScreenSlideAgencyFragment;
 import com.serverus.oom.fragments.ScreenSlideContactUsFragment;
@@ -30,6 +33,10 @@ public class ScreenSlideActivity extends FragmentActivity {
      */
     private PagerAdapter mPagerAdapter;
 
+    private LinearLayout dotsLayout;
+    private int dotsCount;
+    private TextView[] dots;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +46,53 @@ public class ScreenSlideActivity extends FragmentActivity {
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+
+        setDotsController();
+
+        mPager.addOnPageChangeListener(viewPagerPageChangeListener);
     }
+
+    // creation of dots
+    private void setDotsController() {
+        dotsLayout = (LinearLayout)findViewById(R.id.viewPagerCountDots);
+        dotsCount = NUM_PAGES;
+        dots = new TextView[dotsCount];
+
+        for (int i = 0; i < dotsCount; i++) {
+            dots[i] = new TextView(this);
+            dots[i].setText(Html.fromHtml("&#8226;"));
+            dots[i].setTextSize(40);
+            // setting the initial color of the dots before swiping
+            dots[i].setTextColor(getResources().getColor(android.R.color.darker_gray));
+            // adding the dots in the view
+            dotsLayout.addView(dots[i]);
+        }
+
+        //setting the color of the first dot
+        dots[0].setTextColor(getResources().getColor(R.color.primaryColor));
+    }
+
+    // event listener when swiping the view pager
+    ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
+
+        @Override
+        public void onPageSelected(int position) {
+            for (int i = 0; i < dotsCount; i++) {
+                dots[i].setTextColor(getResources().getColor(android.R.color.darker_gray));
+            }
+            dots[position].setTextColor(getResources().getColor(R.color.primaryColor));
+        }
+
+        @Override
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int arg0) {
+
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
