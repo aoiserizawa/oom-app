@@ -39,7 +39,7 @@ public class ScreenSlideServicesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), MainActivity.class);
-                intent.putExtra("fragmentClass", "com.serverus.oom.fragments.FragmentServices");
+                intent.putExtra("fragmentClass", "com.serverus.oom.fragments.FragmentServices2");
                 startActivity(intent);
             }
         });

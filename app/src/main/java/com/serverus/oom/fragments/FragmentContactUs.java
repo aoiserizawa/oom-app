@@ -3,8 +3,12 @@ package com.serverus.oom.fragments;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +17,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.parse.ParseException;
 import com.parse.SaveCallback;
@@ -23,10 +36,14 @@ import com.serverus.oom.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentContactUs extends Fragment implements View.OnClickListener {
+public class FragmentContactUs extends Fragment implements View.OnClickListener,OnMapReadyCallback {
     private Spinner servicesSpinner;
     private Spinner howUFindUsSpinner;
     private Button  sendEnquiryButton;
+
+    private static GoogleMap mMap;
+    private FragmentTransaction fTransaction;
+    private MapFragment mapFragment;
 
     private TextInputLayout _nameTextInput,
             _companyTextInput,
@@ -55,8 +72,10 @@ public class FragmentContactUs extends Fragment implements View.OnClickListener 
         getActivity().setTitle("Countact Us");
 
         View view = inflater.inflate(R.layout.fragment_contact_us, container, false);
-        // Inflate the layout for this fragment
         initViews(view);
+
+        createMap();
+
         return view;
     }
 
@@ -210,6 +229,24 @@ public class FragmentContactUs extends Fragment implements View.OnClickListener 
         }
 
         return valid;
+    }
+
+
+    public void createMap(){
+        FragmentManager fm = getChildFragmentManager();
+        SupportMapFragment supportMapFragment =  SupportMapFragment.newInstance();
+        fm.beginTransaction().replace(R.id.map, supportMapFragment).commit();
+        supportMapFragment.getMapAsync(this);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        LatLng oomOffice = new LatLng(1.358606,103.833566);
+        CameraUpdate zoom=CameraUpdateFactory.zoomTo(15);
+        googleMap.addMarker(new MarkerOptions().position(oomOffice)
+                .title("Optimal Online Marketing")).showInfoWindow();
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(oomOffice));
+        googleMap.animateCamera(zoom);
     }
 
 }
