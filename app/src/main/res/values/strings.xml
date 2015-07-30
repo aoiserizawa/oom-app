@@ -54,5 +54,28 @@
         <item>Others</item>
     </string-array>
     <string name="title_activity_screen_slide">ScreenSlideActivity</string>
-    <string name="lorem_ipsum">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</string>
+    <string name="lorem_ipsum">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"
+    </string>
+
+    <string-array name="services_image_ids">
+        <item>@drawable/seo_icon</item>
+        <item>@drawable/sem_icon</item>
+        <item>@drawable/sem_icon</item>
+        <item>@drawable/content_mrtkng_icon</item>
+        <item>@drawable/banner_ad_icon</item>
+        <item>@drawable/web_dev_icon</item>
+    </string-array>
+
+    <string-array name="services_label">
+        <item>Search Engine Optimization</item>
+        <item>Search Engine Marketing</item>
+        <item>Social Media Marketing</item>
+        <item>Content Markenting</item>
+        <item>Banner Advertising</item>
+        <item>Web Design and Development</item>
+    </string-array>
 </resources>
