@@ -18,19 +18,22 @@ import android.widget.LinearLayout;
 import com.parse.ParseUser;
 import com.serverus.oom.fragments.FragmentAgency;
 import com.serverus.oom.fragments.FragmentContactUs;
-import com.serverus.oom.fragments.FragmentHome;
 import com.serverus.oom.fragments.FragmentServices;
+import com.serverus.oom.fragments.FragmentServices2;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar mToolBar;
     private NavigationView mDrawer;
     private ActionBarDrawerToggle mdrawerToggle;
     private DrawerLayout mDrawerLayout;
-
     private LinearLayout innerParent;
-    private final String FRAGMENT_TAG = "myfragmenttag";
 
-    public String viewVar;
+    private String fragClassName;
+    private String passedFragment;
+    private String fragmentTitle;
+    private static String RUN_ONCE;
+
+    private final String FRAGMENT_TAG = "myfragmenttag";
 
     public Fragment fragment = null;
     public Class fragmentClass = null;
@@ -38,26 +41,18 @@ public class MainActivity extends AppCompatActivity {
     private Menu mMenu;
     private MenuItem menuItemReserve = null;
     private MenuItem loginMenu;
-    public MenuItem logoutMenu;
+    public  MenuItem logoutMenu;
 
-    private String fragClassName;
-    private String passedFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         initViews();
 
-       passedFragment = this.getIntent().getExtras().getString("fragmentClass");
-
-        Log.d("aoi", passedFragment);
-
-        if(savedInstanceState != null){
-            getSupportFragmentManager().findFragmentByTag(FRAGMENT_TAG);
-
-        }
+        passedFragment = this.getIntent().getExtras().getString("fragmentClass");
 
             switch (passedFragment){
                 case "com.serverus.oom.fragments.FragmentAgency":
@@ -65,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
                     menuItemReserve = mMenu.findItem(R.id.agency_menu_item);
                     break;
-                case "com.serverus.oom.fragments.FragmentServices":
-                    fragmentClass = FragmentServices.class;
+                case "com.serverus.oom.fragments.FragmentServices2":
+                    fragmentClass = FragmentServices2.class;
                     menuItemReserve = mMenu.findItem(R.id.services_menu_item);
                     break;
                 case "com.serverus.oom.fragments.FragmentContactUs":
@@ -78,15 +73,22 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
 
-
-            Log.d("aoi", fragmentClass.getName());
+        if(savedInstanceState == null){
             fragmentReplace(fragmentClass);
 
-        ParseUser currentUser = ParseUser.getCurrentUser();
-
-        if(currentUser != null){
-            enableUserLogedin(true);
+        }else{
+            getSupportFragmentManager().findFragmentByTag(FRAGMENT_TAG);
+            fragmentTitle = savedInstanceState.getString("title");
+            setTitle(fragmentTitle);
         }
+
+
+
+//        ParseUser currentUser = ParseUser.getCurrentUser();
+//
+//        if(currentUser != null){
+//            enableUserLogedin(true);
+//        }
 
         // this will determine if we are using the BackStack
         // we need this to change the title when we go back from previous fragments
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
                 int backCount = getSupportFragmentManager().getBackStackEntryCount();
 
-                if(backCount == 0){
+                if (backCount == 0) {
                     finish();
                 }
 
@@ -191,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                     fragmentClass = FragmentAgency.class;
                     break;
                 case R.id.services_menu_item:
-                    fragmentClass = FragmentServices.class;
+                    fragmentClass = FragmentServices2.class;
                     break;
                 case R.id.contact_menu_item:
                     fragmentClass = FragmentContactUs.class;
@@ -239,6 +241,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = this.getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
@@ -286,15 +289,19 @@ public class MainActivity extends AppCompatActivity {
         Log.d("aoi", "fragment name "+fragClassName);
         if (fragClassName.equals(FragmentAgency.class.getName())){
             // set the app bar title
-            setTitle("Agency");
+            fragmentTitle = "Agency";
+
+            setTitle(fragmentTitle);
             mMenu.findItem(R.id.agency_menu_item).setChecked(true);
         }
-        else if (fragClassName.equals(FragmentServices.class.getName())){
-            setTitle ("Services");
+        else if (fragClassName.equals(FragmentServices2.class.getName())){
+            fragmentTitle = "Services";
+            setTitle(fragmentTitle);
             mMenu.findItem(R.id.services_menu_item).setChecked(true);
         }
         else if (fragClassName.equals(FragmentContactUs.class.getName())){
-            setTitle ("Contact Us");
+            fragmentTitle = "Contact Us";
+            setTitle(fragmentTitle);
             mMenu.findItem(R.id.contact_menu_item).setChecked(true);
         }else{
             setTitle ("OOm");
@@ -308,4 +315,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(RUN_ONCE, true);
+        outState.putString("title", fragmentTitle);
+    }
 }
