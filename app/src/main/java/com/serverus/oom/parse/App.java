@@ -3,6 +3,7 @@ package com.serverus.oom.parse;
 import android.app.Application;
 
 import com.parse.Parse;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 
 /**
@@ -20,5 +21,8 @@ public class App extends Application {
         Parse.enableLocalDatastore(this);
         ParseObject.registerSubclass(Enquiry.class);
         Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
+        ParseInstallation.getCurrentInstallation().saveInBackground();
+
+
     }
 }

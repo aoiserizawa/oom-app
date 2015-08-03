@@ -15,7 +15,6 @@ import android.support.v7.widget.Toolbar;
 import android.support.design.widget.NavigationView;
 import android.widget.LinearLayout;
 
-import com.parse.ParseUser;
 import com.serverus.oom.fragments.FragmentAgency;
 import com.serverus.oom.fragments.FragmentContactUs;
 import com.serverus.oom.fragments.FragmentServices;
@@ -228,11 +227,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void logout() {
-        ParseUser.logOut();
-        loginMenu.setVisible(true);
-        logoutMenu.setVisible(false);
-    }
+//    private void logout() {
+//        ParseUser.logOut();
+//        loginMenu.setVisible(true);
+//        logoutMenu.setVisible(false);
+//    }
 
     public void fragmentReplace(Class fragmentClass) {
 
