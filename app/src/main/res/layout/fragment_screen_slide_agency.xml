@@ -1,35 +1,54 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.serverus.oom.fragments.ScreenSlideAgencyFragment">
+    android:layout_height="fill_parent"
+    tools:context="com.serverus.oom.fragments.ScreenSlideAgencyFragment"
+    android:orientation="vertical">
 
-    <!-- fragment_screen_slide_agencycy.xml -->
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/content"
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView10"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/rocket"
+        android:contentDescription=""
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentLeft="false"
+        android:baselineAlignBottom="false" />
+
+    <TextView style="?android:textAppearanceMedium"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:text="@string/home1"
+        android:textIsSelectable="false"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:layout_above="@+id/agency_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Learn More About Us"
+        android:id="@+id/agency_button"
+        android:textColor="#fff"
+        android:background="#f52c4e"
+        android:fontFamily="Roboto"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-            <TextView style="?android:textAppearanceMedium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/lorem_ipsum" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:text="Learn More About Us"
-                android:id="@+id/agency_button"
-                android:layout_gravity="bottom" />
-
-
-        </LinearLayout>
-    </ScrollView>
-
-</FrameLayout>
+</RelativeLayout>

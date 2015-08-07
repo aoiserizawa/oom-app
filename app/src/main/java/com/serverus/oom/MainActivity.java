@@ -1,23 +1,22 @@
 package com.serverus.oom;
 
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.Fragment;
 import android.content.res.Configuration;
+import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v7.widget.Toolbar;
-import android.support.design.widget.NavigationView;
 import android.widget.LinearLayout;
 
 import com.serverus.oom.fragments.FragmentAgency;
 import com.serverus.oom.fragments.FragmentContactUs;
-import com.serverus.oom.fragments.FragmentServices;
 import com.serverus.oom.fragments.FragmentServices2;
 
 public class MainActivity extends AppCompatActivity {

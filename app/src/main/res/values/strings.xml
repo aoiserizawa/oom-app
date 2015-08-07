@@ -60,6 +60,9 @@
         dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
         sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"
     </string>
+    <string name="home1">
+        We are the Navigators of The Digital Frontier because we live and breathe digital.
+    </string>
 
     <string-array name="services_image_ids">
         <item>@drawable/seo_icon</item>
