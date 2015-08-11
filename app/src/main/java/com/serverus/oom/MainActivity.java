@@ -1,5 +1,6 @@
 package com.serverus.oom;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -15,8 +16,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 
+import com.parse.ParseUser;
 import com.serverus.oom.fragments.FragmentAgency;
 import com.serverus.oom.fragments.FragmentContactUs;
+import com.serverus.oom.fragments.FragmentLogin;
 import com.serverus.oom.fragments.FragmentServices2;
 
 public class MainActivity extends AppCompatActivity {
@@ -81,12 +84,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-//        ParseUser currentUser = ParseUser.getCurrentUser();
-//
-//        if(currentUser != null){
-//            enableUserLogedin(true);
-//        }
+        // check if user is loged in
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if(currentUser != null){
+            enableUserLogedin(true);
+        }
 
         // this will determine if we are using the BackStack
         // we need this to change the title when we go back from previous fragments
@@ -165,8 +167,8 @@ public class MainActivity extends AppCompatActivity {
 
         mMenu = mDrawer.getMenu();
 
-//        loginMenu =  mMenu.findItem(R.id.login_menu_item);
-//        logoutMenu = mMenu.findItem(R.id.logout_menu_item);
+        loginMenu =  mMenu.findItem(R.id.login_menu_item);
+        logoutMenu = mMenu.findItem(R.id.logout_menu_item);
         //mDrawer.setNavigationItemSelectedListener(this);
     }
 
@@ -196,12 +198,18 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.contact_menu_item:
                     fragmentClass = FragmentContactUs.class;
                     break;
-//                case R.id.login_menu_item:
-//                    fragmentClass = FragmentLogin.class;
-//                    break;
-//                case R.id.logout_menu_item:
-//                    logout();
-//                    break;
+                case R.id.login_menu_item:
+                    fragmentClass = FragmentLogin.class;
+                    break;
+                case R.id.logout_menu_item:
+                    logout();
+                    break;
+                case R.id.support_menu_item:
+                    final Intent userList = new Intent(this, ListUserActivity.class);
+                    final Intent serviceIntent = new Intent(getApplicationContext(), MessageService.class);
+                    startActivity(userList);
+                    startService(serviceIntent);
+                    break;
                 default:
                     break;
             }
@@ -226,11 +234,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    private void logout() {
-//        ParseUser.logOut();
-//        loginMenu.setVisible(true);
-//        logoutMenu.setVisible(false);
-//    }
+    private void logout() {
+        ParseUser.logOut();
+        loginMenu.setVisible(true);
+        logoutMenu.setVisible(false);
+    }
 
     public void fragmentReplace(Class fragmentClass) {
 
@@ -301,6 +309,10 @@ public class MainActivity extends AppCompatActivity {
             fragmentTitle = "Contact Us";
             setTitle(fragmentTitle);
             mMenu.findItem(R.id.contact_menu_item).setChecked(true);
+        }else if (fragClassName.equals(FragmentLogin.class.getName())){
+            fragmentTitle = "Login";
+            setTitle(fragmentTitle);
+            mMenu.findItem(R.id.login_menu_item).setChecked(true);
         }else{
             setTitle ("OOm");
         }
@@ -308,8 +320,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void enableUserLogedin(boolean logedin){
         if(logedin == true){
-//            loginMenu.setVisible(false);
-//            logoutMenu.setVisible(true);
+            loginMenu.setVisible(false);
+            logoutMenu.setVisible(true);
         }
     }
 

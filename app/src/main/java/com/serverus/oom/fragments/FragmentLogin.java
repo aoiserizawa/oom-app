@@ -16,7 +16,9 @@ import android.widget.Toast;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.serverus.oom.ListUserActivity;
 import com.serverus.oom.MainActivity;
+import com.serverus.oom.MessageService;
 import com.serverus.oom.R;
 import com.serverus.oom.SignupActivity;
 
@@ -105,15 +107,22 @@ public class FragmentLogin extends Fragment {
                                     "Successfully Logged in",
                                     Toast.LENGTH_LONG).show();
 
-                            Intent refresh = new Intent(getActivity(), MainActivity.class);
-                            startActivity(refresh);
-                            getActivity().finish();
+                            Intent userList = new Intent(getActivity(), ListUserActivity.class);
+                            final Intent serviceIntent = new Intent(getActivity(), MessageService.class);
+                            getActivity().startService(serviceIntent);
+                            startActivity(userList);
+                            //getActivity().finish();
+
+                            _loginBtn.setEnabled(true);
 
                         } else {
+                            progressDialog.dismiss();
+                            _loginBtn.setEnabled(true);
                             Toast.makeText(
                                     getActivity(),
                                     e.getMessage(),
                                     Toast.LENGTH_LONG).show();
+
                         }
                     }
                 });
@@ -150,6 +159,4 @@ public class FragmentLogin extends Fragment {
 
         return valid;
     }
-
-
 }

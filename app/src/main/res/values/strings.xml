@@ -81,4 +81,5 @@
         <item>Banner Advertising</item>
         <item>Web Design and Development</item>
     </string-array>
+    <string name="title_activity_list_user">ListUserActivity</string>
 </resources>
