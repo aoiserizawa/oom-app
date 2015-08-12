@@ -238,6 +238,7 @@ public class MainActivity extends AppCompatActivity {
         ParseUser.logOut();
         loginMenu.setVisible(true);
         logoutMenu.setVisible(false);
+        stopService(new Intent(this, MessageService.class));
     }
 
     public void fragmentReplace(Class fragmentClass) {

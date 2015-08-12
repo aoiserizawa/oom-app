@@ -111,7 +111,7 @@ public class FragmentLogin extends Fragment {
                             final Intent serviceIntent = new Intent(getActivity(), MessageService.class);
                             getActivity().startService(serviceIntent);
                             startActivity(userList);
-                            //getActivity().finish();
+                            getActivity().finish();
 
                             _loginBtn.setEnabled(true);
 

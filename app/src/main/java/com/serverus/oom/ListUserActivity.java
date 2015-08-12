@@ -1,5 +1,6 @@
 package com.serverus.oom;
 
+import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -47,13 +48,11 @@ public class ListUserActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Loading");
         progressDialog.setMessage("Please wait...");
         progressDialog.show();
-        //broadcast receiver to listen for the broadcast
-        //from MessageService
+
         receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -64,14 +63,13 @@ public class ListUserActivity extends AppCompatActivity {
                 if (!success) {
                     Toast.makeText(getApplicationContext(), "Messaging service failed to start", Toast.LENGTH_LONG).show();
                 }else{
+
                     Toast.makeText(getApplicationContext(), "na mo Lo, Beast mode ako", Toast.LENGTH_LONG).show();
                 }
             }
         };
 
         LocalBroadcastManager.getInstance(this).registerReceiver(receiver, new IntentFilter("com.serverus.oom.ListUserActivity"));
-
-        Log.d("aoi", String.valueOf(receiver));
 
         currentUserId = ParseUser.getCurrentUser().getObjectId();
         names = new ArrayList<String>();

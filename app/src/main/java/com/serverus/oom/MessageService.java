@@ -35,16 +35,24 @@ public class MessageService extends Service implements SinchClientListener {
     private Intent broadcastIntent = new Intent("com.serverus.oom.ListUserActivity");
     private LocalBroadcastManager broadcaster;
 
+    private boolean mRunning;
+
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mRunning = false;
+    }
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
-
 
         //get the current user id from Parse
         currentUserId = ParseUser.getCurrentUser().getObjectId();
 
-        if (currentUserId != null && !isSinchClientStarted()) {
+        if (currentUserId != null && !isSinchClientStarted() && !mRunning) {
             startSinchClient(currentUserId);
+            mRunning = true;
         }
 
         broadcaster = LocalBroadcastManager.getInstance(this);
